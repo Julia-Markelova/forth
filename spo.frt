@@ -6,7 +6,7 @@
 
 ( №4,5)
 ( 0 - составное, 1 - простое)
-( number -- prime)
+( number -- result_addr)
 : prime 
 	dup 1 > 
 	if dup 4 <  ( check if it is too small to be comp)
