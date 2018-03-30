@@ -2,11 +2,7 @@
 ( №3)
 ( 0 - нечетное, 1 - четное)
 ( number -- parity)
-<<<<<<< HEAD
 : parity 2 % not ;
-=======
-: parity 2 % if 0 else 1 then ;
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 
 ( №4,5)
 ( 0 - составное, 1 - простое)
@@ -15,11 +11,6 @@
 	dup 1 > 
 	if dup 4 <  ( check if it is too small to be comp)
 		if drop 1 allot dup 1 swap ! ( save)
-<<<<<<< HEAD
-=======
-		else dup parity  ( if the number is even and > 3, it is not a prime one)
-			if drop 1 allot dup 0 swap !  ( save)
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 			else 2 repeat ( 2 is the first divisor)
 				over over swap < not 
 					if 1 1 ( go away if a divisor more than a number and save 1 as 'prime')
@@ -30,20 +21,12 @@
 					then
 				until 
 			rot rot drop drop ( remove number and divisor) 1 allot dup >r ! r> 
-<<<<<<< HEAD
 		then 
     else 1 allot dup 0 swap ! swap drop ( <=1)
 	then  ; 
  
 ( 40 prime @ .S ( check)
 
-=======
-			then 
-		then 
-    else 1 allot dup 0 swap ! ( <=1)
-	then  ; 
- 
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 ( №7)
 ( target_addr str_addr -- target_addr+str_len)
 : copy1 ( target_addr, str_addr)
@@ -58,11 +41,7 @@
 : cat 	
 	dup count ( 1st len)
 	rot dup count ( 2nd len)
-<<<<<<< HEAD
 	rot + 1 + ( sum + null-term)
-=======
-	rot + ( sum)
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 	heap-alloc dup >r ( save target addr)
 	rot >r ( save 2nd addr)
 	swap  ( t_addr, s_addr)
@@ -71,10 +50,6 @@
 	r> copy1 
     r> swap drop ; ( get addr of concatenated str)
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 ( №7a)
 ( number -- seq)
 : collatz 
@@ -82,12 +57,8 @@
 		dup dup 2 % 
 		if 3 * 1 + ( if not an even one)
 		else 2 / 
-<<<<<<< HEAD
 		then dup . ."  " 
 		dup 1 = ( if we are done)
-=======
-		then dup 1 = ( if we are done)
->>>>>>> ab68fa0d95e5abdf460fb3265620294ab14f2ddd
 		if 1 
 		else 0 
 		then 
